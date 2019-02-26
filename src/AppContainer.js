@@ -19,8 +19,7 @@ const AppNavigator = createStackNavigator({
             },
             headerTitleStyle: {
                 color: '#FFFFFF'
-            },
-            headerBackImage:'../assets/baseline_arrow_back_white_18dp.png'
+            }
         }
     });
 
