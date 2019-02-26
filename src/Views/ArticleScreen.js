@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text} from "react-native";
+import {View, WebView} from "react-native";
 
 export default class ArticleScreen extends React.Component {
     constructor(props){
@@ -7,6 +7,11 @@ export default class ArticleScreen extends React.Component {
     }
 
     render() {
-        return <Text>Article Screen</Text>;
+        const url = this.props.navigation.getParam('article', 'No link');
+        return (
+            <View style={{flex:1}}>
+                <WebView style={{flex:1}} source={{uri: url}}/>
+            </View>
+        );
     }
 }

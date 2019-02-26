@@ -8,11 +8,20 @@ const AppNavigator = createStackNavigator({
             screen: HomeScreen
         },
         Article: {
-            screen: ArticleScreen
+            screen: ArticleScreen,
         }
     },
     {
-        initialRoute: 'Home'
+        initialRoute: 'Home',
+        defaultNavigationOptions: {
+            headerStyle: {
+                backgroundColor: '#00796B'
+            },
+            headerTitleStyle: {
+                color: '#FFFFFF'
+            },
+            headerBackImage:'../assets/baseline_arrow_back_white_18dp.png'
+        }
     });
 
 export const AppContainer = createAppContainer(AppNavigator);
