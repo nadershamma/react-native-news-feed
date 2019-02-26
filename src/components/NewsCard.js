@@ -9,12 +9,10 @@ export default class NewsCard extends React.Component{
 
     render(){
         return (
-            <Card>
+            <Card style={{padding:10}}>
                 <Card.Cover source={{uri: this.props.articleImage}}/>
-                <Card.Title/>
                 <Card.Content>
                     <Title>{this.props.articleTitle}</Title>
-                    <Paragraph>{this.props.articleSummary}</Paragraph>
                 </Card.Content>
             </Card>
         );

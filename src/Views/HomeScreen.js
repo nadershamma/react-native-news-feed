@@ -7,22 +7,25 @@ import Headlines from "../components/HeadLines";
 export default class HomeScreen extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {articles: null}
+        this.state = {articles: null};
         this.aggregate = new NewsAPI();
     }
 
     componentDidMount() {
         this.aggregate.fetchHeadlines()
-            .then(objects => {
-                this.setState({articles: objects})
+            .then(articles => {
+                this.setState({articles: articles})
             });
     }
 
     render() {
+        let content = null;
+        if (this.state.articles !== null){
+            content = <Headlines articles={this.state.articles}/>;
+        }
         return (
             <View style={styles.container}>
-                <Text>Home Screen</Text>
-                <Headlines articles={this.state.articles}/>
+                {content}
             </View>
         );
     }

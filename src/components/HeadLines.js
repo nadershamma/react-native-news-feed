@@ -8,34 +8,28 @@ export default class Headlines extends React.Component {
         super(props);
     }
 
-    articleList(objects) {
-        let articles = [];
-        objects.forEach((item, index, array) => {
-            let key = `content-${index}`;
-            articles.push({key: item});
-        });
-        return articles;
+    renderItemFromList(article){
+        console.log(12, article);
+        return (
+            <NewsCard
+                articleImage={article.key.urlToImage}
+                articleTitle={article.key.title}
+            />
+        )
     }
 
     render() {
         let content = null;
         if (this.props.articles !== null) {
-            let items = this.articleList(this.props.articles);
+            console.log(25, this.props.articles);
             content = <FlatList
-                data={items}
-                renderItem={
-                    ({item}) => <NewsCard
-                                articleImage={item.key.urlToImage}
-                                articleTitle={item.key.title}
-                                articleSummary={item.key.content}
-                            />
-                }
+                data={this.props.articles}
+                renderItem={({item})=>this.renderItemFromList(item)}
                 keyExtractor={item => item.key.toString()}
             />
         }
         return (
             <View>
-                <Text>Headlines</Text>
                 {content}
             </View>
         );
